@@ -1,0 +1,92 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  font-family: 'Muli', sans-serif, Arial;
+  font-size: 16px;
+  color: #525252;
+}
+
+
+
+/*-------------------------
+      HERO SECTION
+--------------------------*/
+
+.bg-image {
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  z-index: 0; }
+  @media screen and (max-width: 718px) {
+    .bg-image {
+      height: inherit;
+      padding: 3em 0; } }
+  .bg-image .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.55;
+    background: #000000;
+    background: -moz-linear-gradient(-45deg, #000000 0%, #000000 100%);
+    /* background: -webkit-gradient(left top, right bottom, color-stop(0%, #000000), color-stop(100%, #525252)); */
+    background: -webkit-linear-gradient(-45deg, #000000 0%, #000000 20%);
+    background: -o-linear-gradient(-45deg, #000000 0%, #000000 20%);
+    background: -ms-linear-gradient(-45deg, #000000 0%, #000000 20%);
+    background: -webkit-linear-gradient(315deg, #000000 0%, #000000 100%);
+    background: -o-linear-gradient(315deg, #000000 0%, #000000 100%);
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#798eea', GradientType=1 );
+    z-index: 1; }
+
+
+  .bg-image .hero-text {
+    display: table;
+    height: 570px;
+    width: 100%;
+    position: relative;
+    z-index: 2; }
+    @media screen and (max-width: 718px) {
+      .bg-image .hero-text {
+        height: 500px; } }
+    .bg-image .hero-text.hero-text2 {
+      height: 400px; }
+  .bg-image .hero-text2 {
+    display: table-cell;
+    vertical-align: middle; }
+    .bg-image .hero-text2 .holder {
+      color: #fff;
+      font-family: 'Muli', sans-serif, Arial;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 7px; }
+      .bg-image .hero-text2 .holder span {
+        position: relative; }
+    .bg-image .hero-text2 h2 {
+      color: #fff;
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: 700; }
+      @media screen and (max-width: 718px) {
+        .bg-image .hero-text2 h2 {
+          font-size: 34px; } }
+    .bg-image .hero-text2 p {
+      font-family: 'Muli', sans-serif, Arial;
+      color: #fff;
+      font-weight: 300 !important;
+      font-style: italic !important;
+      font-size: 32px; }
+    .bg-image .hero-text2 p.breadcrumbs {
+      font-size: 14px; }
+      .bg-image .hero-text2 p.breadcrumbs span {
+        padding-right: 10px;
+        color: rgba(255, 255, 255, 0.5); }
+        .bg-image .hero-text2 p.breadcrumbs span a {
+          color: rgba(255, 255, 255, 0.9); }
+    .bg-image .hero-text2 .btn-custom {
+      font-size: 16px; 
+      font-weight: 600 !important;}
