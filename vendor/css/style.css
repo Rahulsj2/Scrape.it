@@ -16,7 +16,7 @@ html, body{
       HERO SECTION
 --------------------------*/
 
-.bg-image {
+/* .bg-image {
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@ html, body{
     opacity: 0.55;
     background: #000000;
     background: -moz-linear-gradient(-45deg, #000000 0%, #000000 100%);
-    /* background: -webkit-gradient(left top, right bottom, color-stop(0%, #000000), color-stop(100%, #525252)); */
+    /* background: -webkit-gradient(left top, right bottom, color-stop(0%, #000000), color-stop(100%, #525252)); 
     background: -webkit-linear-gradient(-45deg, #000000 0%, #000000 20%);
     background: -o-linear-gradient(-45deg, #000000 0%, #000000 20%);
     background: -ms-linear-gradient(-45deg, #000000 0%, #000000 20%);
@@ -42,9 +42,9 @@ html, body{
     background: -o-linear-gradient(315deg, #000000 0%, #000000 100%);
     background: linear-gradient(135deg, #000000 0%, #000000 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#798eea', GradientType=1 );
-    z-index: 1; }
+    z-index: 1; } */
 
-
+/* 
   .bg-image .hero-text {
     display: table;
     height: 570px;
@@ -90,14 +90,26 @@ html, body{
           color: rgba(255, 255, 255, 0.9); }
     .bg-image .hero-text2 .btn-custom {
       font-size: 16px; 
-      font-weight: 600 !important;}
+      font-weight: 600 !important;} */
 
+.nav-link{
+  border:1px solid #525252;
+  /* background-size: 20px !important; */
+  color: #525252;
+}
+.nav-link:hover{
+  color: #525252;
+}
 
-
+.blog p{ 
+  font-size: 24px;
+  font-weight: 400;
+}
 
 .scrap{
   height: 230px;
 }
+
 
 .logo{
   height: 400px;
@@ -181,5 +193,32 @@ html, body{
 
 .categories p{
   font-size: 32px;
-  font-\weight: 400;
+  font-weight: 400;
+}
+
+.card-body .card-title{
+  font-size: 20px;
+  font-size: 600;
+  color: #525252;
+}
+
+.card-body .card-text{
+  font-size: 16px;
+  font-size: 400;
+  color: #959595;
+}
+
+.card-body .card-link{
+  font-size: 14px;
+  font-size: 500;
+  color: #4B4B4B;
+}
+
+.card:hover{
+  background: #F4F4F4;
+  border-color: #F4F4F4;
+}
+
+.card-body .card-link:hover{
+  color: rgb(46, 46, 46);
 }
