@@ -4,7 +4,7 @@ html, body{
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-family: 'Muli', sans-serif, Arial;
+  font-family: 'Raleway', sans-serif, Arial;
   font-size: 16px;
   color: #525252;
 
@@ -96,7 +96,7 @@ html, body{
 
 
 .scrap{
-  height: 250px;
+  height: 230px;
 }
 
 .logo{
@@ -158,12 +158,28 @@ html, body{
   width: 247px;
   height: 40px;
   left: 0;
-  top: 188px;
+  top: 189px;
+  border-radius:0 0 5px 5px;
   color: #fff;
   line-height: 40px;
   text-align: center;
   background: #000000;
   opacity: 0.7;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 
+.card{
+  border-radius: 5px;
+}
+
+.search-bar{
+  height: 80px;
+}
+
+
+.categories p{
+  font-size: 32px;
+  font-\weight: 400;
+}
