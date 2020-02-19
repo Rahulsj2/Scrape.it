@@ -7,6 +7,7 @@ html, body{
   font-family: 'Muli', sans-serif, Arial;
   font-size: 16px;
   color: #525252;
+
 }
 
 
@@ -94,32 +95,19 @@ html, body{
 
 
 
-
 .scrap{
-  height: 220px;
+  height: 250px;
 }
 
 .logo{
-  height: 348px;
+  height: 400px;
   width: 948;
   margin: 0 !important;
   padding: 0 !important;
   position: relative;
   left:-55px;
-  top: -75px;
-  /* rotate: -10deg; */
-  /* -webkit-transform:rotate(-7deg);
-  -moz-transform: rotate(-7deg);
-  -ms-transform: rotate(-7deg);
-  -o-transform: rotate(-7deg);
-  transform: rotate(-7deg); */
+  top: -95px;
 }
-
-
-
-
-
-
   .searchbar{
   height: 61px;
   background-color: #F4F4F4;
@@ -135,23 +123,13 @@ html, body{
   width: 450px;
   caret-color:transparent;
   line-height: 40px;
-  /* transition: width 0.4s linear; */
   }
 
-  .searchbar:hover > .search_input{
-  /* padding: 0 10px; */
-  /* width: 450px; */
-  /* caret-color:red; */
-  /* transition: width 0.4s linear; */
-  }
-
-  .searchbar:hover > .search_icon{
-  /* background: white; */
-  /* color: #e74c3c; */
+  .search_icon {
+    color: #959595;
   }
 
   .arrow_icon{
-  font-size: ;
   position: relative;
   bottom: 8px;
   left: 8px;
@@ -173,4 +151,19 @@ html, body{
 .arrow_icon:hover{
   color: #fff;
 }
+
+
+.trans-box {
+  position: absolute;
+  width: 247px;
+  height: 40px;
+  left: 0;
+  top: 188px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  background: #000000;
+  opacity: 0.7;
+}
+
 
