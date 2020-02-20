@@ -184,6 +184,13 @@ html, body{
   font-weight: 600;
 }
 
+.card-body a{
+  text-decoration: none;
+}
+.card-body a:hover{
+  color: rgb(107, 107, 107);
+}
+
 
 .card{
   border-radius: 5px;
@@ -332,4 +339,9 @@ html, body{
   margin: -20px !important;
 }
 
-
+.next{
+  color: #525252;
+}
+ .pag-num{
+   color:#959595;
+ }
