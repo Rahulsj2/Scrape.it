@@ -19,7 +19,8 @@ class PostSpider(scrapy.Spider):
                 'post_link': post.css("div a::attr(href)").get(),
                 'image_link': post.css("div.c-entry-box--compact__image img::attr(src)").extract(),
                 'date': post.css("time.c-byline__item::text").get(),
-                'author': post.css("span.c-byline__author-name::text").get()
+                'author': post.css("span.c-byline__author-name::text").get(),
+                'category': 'tech'
             }
 
 
