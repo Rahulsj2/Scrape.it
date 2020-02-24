@@ -196,7 +196,7 @@ html, body{
   background: none;
   width: 280px;
   caret-color:transparent;
-  line-height: 5px !important;
+  line-height: 15px !important;
   }
 
   .search-icon {
