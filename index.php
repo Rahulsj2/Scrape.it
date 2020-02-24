@@ -57,7 +57,7 @@ include('header.php');
                     <div class="col-md-3 mx-auto">
                         <div class="card" style="height: 230px; background-image: url(img/tech.jpg); background-size: 100% 100%; background-repeat: no-repeat;">
                             <div class="card-body mt-5 pt-5 link">
-                              <a class="card-title trans-box" id="tech" href="view/blog.html#tech" style="color: #fff;">Technology</a>
+                              <a class="card-title trans-box" id="tech" href="view/blog.php#tech" style="color: #fff;">Technology</a>
                             </div>
                           </div>
                     </div>
@@ -65,7 +65,7 @@ include('header.php');
                     <div class="col-md-3 mx-auto">
                         <div class="card" style="height: 230px; background-image: url(img/beauty.jpg); background-size: 100% 100%; background-repeat: no-repeat;">
                             <div class="card-body mt-5 pt-5">
-                              <a class="card-title trans-box" href="view/blog.html#beauty" style="color: #fff;">Beauty</a>
+                              <a class="card-title trans-box" href="view/blog.php#beauty" style="color: #fff;">Beauty</a>
                             </div>
                           </div>
                     </div>
@@ -73,7 +73,7 @@ include('header.php');
                     <div class="col-md-3 mx-auto">
                         <div class="card" style="height: 230px; background-image: url(img/food.jpg); background-size: 100% 100%; background-repeat: no-repeat;">
                             <div class="card-body mt-5 pt-5">
-                              <a class="card-title trans-box" href="view/blog.html#food" style="color: #fff;">Food</a>
+                              <a class="card-title trans-box" href="view/blog.php#food" style="color: #fff;">Food</a>
                             </div>
                           </div>
                     </div>
@@ -82,7 +82,7 @@ include('header.php');
                         <div class="card" style="height: 230px; background-image: url(img/travel.jpg); background-size: 100% 100%; background-repeat: no-repeat;">
                             <div class="card-body mt-5 pt-5">
                                 <div>
-                                    <a class="card-title trans-box" style="color: #fff;" href="view/blog.html#travel">Travel</a>
+                                    <a class="card-title trans-box" style="color: #fff;" href="view/blog.php#travel">Travel</a>
                                 </div>
                             </div>
                           </div>

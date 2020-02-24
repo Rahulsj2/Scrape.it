@@ -1,3 +1,9 @@
+<?php
+
+require('../controllers/newscontroller.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,10 +28,6 @@
         <Link rel="stylesheet" type="text/css" href="../vendor/css/style.css">
 
         <!-- Bootstrap core JavaScript-->
-        <!-- <script src="../vendor/jquery/jquery-ui.css"></script> -->
-        <!-- <script src="../vendor/jquery/jquery-ui.js"></script> -->
-        <!-- <script src="../vendor/jquery/jquery-ui.min.css"></script> -->
-        <!-- <script src="../vendor/jquery/jquery-ui.min.js"></script> -->
         <script src="../vendor/jquery/jquery.min.js"></script>
         <script src="../vendor/js/app.js"></script>
 
@@ -42,7 +44,7 @@
             <div class="container text-center text-md-left">
                 <div class="row">
                     <div class="col-md-12 mx-auto content">
-                        <a class="nav-link home-link mb-3" href="../index.html"><i class="mr-2 fa fa-arrow-left" style="font-size: 14px"></i>Back to Home</a>
+                        <a class="nav-link home-link mb-3" href="../index.php"><i class="mr-2 fa fa-arrow-left" style="font-size: 14px"></i>Back to Home</a>
                         <div class="container blog">
                             <div class="row">
                                 <div class="col-3 mx-auto">
@@ -67,19 +69,19 @@
                         <div class="cat-nav">
                             <ul class="nav nav-pills mb-2" id="pills-tab" role="tablist">
                                 <li class="nav-item done mx-3">
-                                    <a class="nav-link active " href="blog.html" aria-expanded="false">All</a>
+                                    <a class="nav-link active " href="blog.php" aria-expanded="false">All</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link" href="blog.html#tech" aria-expanded="false">Technology</a>
+                                    <a class="nav-link" href="blog.php#tech" aria-expanded="false">Technology</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link " href="blog.html#beauty" aria-expanded="false">Beauty</a>
+                                    <a class="nav-link " href="blog.php#beauty" aria-expanded="false">Beauty</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link " href="blog.html#food" aria-expanded="false">Food</a>
+                                    <a class="nav-link " href="blog.php#food" aria-expanded="false">Food</a>
                                 </li>
                                 <li class="nav-item mx-2">
-                                    <a class="nav-link " href="blog.html#travel" aria-expanded="false">Travel</a>
+                                    <a class="nav-link " href="blog.php#travel" aria-expanded="false">Travel</a>
                                 </li>
                             </ul>
                         </div>
@@ -93,10 +95,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
