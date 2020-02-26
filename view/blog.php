@@ -1,8 +1,6 @@
 <?php
 
 require('../controllers/newscontroller.php');
-
-
 ?>
 
 <!DOCTYPE html>
@@ -90,9 +88,24 @@ require('../controllers/newscontroller.php');
                         <div class="my-4 py-2">
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="container tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="pills-customize-tab">
-                                    <?php $records = view_all_news(); ?>
-                                    <?php if(count($records)): ?>
-                                        <?php foreach( $records as $record){ ?>
+                                    <?php 
+                                    $records = view_all_news(); 
+                                    $results_per_page = 10;
+                                    $num_records = count($records);
+                                    $num_of_pages = ceil($num_records/$results_per_page);
+                                    if (!isset($_GET['page'])){
+                                        $page = 1;
+                                    } else{
+                                        $page = $_GET['page'];
+                                    }
+
+                                    $this_page_first_result = ($page-1)*$results_per_page;
+                                    
+                                    $record_select = view_limit_news($this_page_first_result, $results_per_page);
+
+                                    ?>
+                                    <?php if(count($record_select)): ?>
+                                        <?php foreach( $record_select as $record){ ?>
                                             <div class="card my-4 mb-1">
                                                 <div class="card-body">
                                                     <div class="row">
@@ -103,7 +116,7 @@ require('../controllers/newscontroller.php');
                                                             <h4 class="card-title"><?php echo $record["title"]; ?></h4>
                                                             <p class=""><span>Author:</span><?php echo $record["author"]; ?></p>
                                                             <p class=""><?php echo $record["date"]; ?></p> 
-                                                            <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right"><?php echo $record["articlelink"]; ?></a>
+                                                            <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right" target="_blank"><?php echo $record["articlelink"]; ?></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -114,11 +127,11 @@ require('../controllers/newscontroller.php');
                                             <nav data-pagination class="pt-5">
                                                 <a href=# class="disabled"><i class="fa fa-chevron-left ml-5"></i>Previous</a>
                                                 <ul>
-                                                    <li class=current><a href=#>1</a>
-                                                    <li><a href=#>2</a>
-                                                    <li><a href=#>3</a>
-                                                    <li><a href=#>4</a>
-                                                    <li><a href=#>5</a>
+                                                    <?php
+                                                    for($page=1; $page<=$num_of_pages; $page++){
+                                                        echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                    }
+                                                    ?>
                                                 </ul>
                                                 <a href=#2 class="next" >Next<i class="fa fa-chevron-right ml-1"></i></a>
                                             </nav>
@@ -141,9 +154,24 @@ require('../controllers/newscontroller.php');
                                 </div>
 
                                 <div class="tab-pane fade" id="tech" role="tabpanel" aria-labelledby="tech">
-                                    <?php $records = view_tech_news("tech"); ?>
-                                        <?php if(count($records)): ?>
-                                            <?php foreach( $records as $record){ ?>
+                                    <?php 
+                                        $all_tech_records = view_cat_news("tech"); 
+                                        $results_per_page = 10;
+                                        $tech_num_records = count($all_tech_records);
+                                        $tech_num_of_pages = ceil($tech_num_records/$results_per_page);
+                                        if (!isset($_GET['page'])){
+                                            $page = 1;
+                                        } else{
+                                            $page = $_GET['page'];
+                                        }
+
+                                        $this_page_first_result = ($page-1)*$results_per_page;
+                                        
+                                        $tech_record_select = view_limit_cat_news("tech",$this_page_first_result, $results_per_page);
+
+                                    ?>
+                                        <?php if(count($tech_record_select)): ?>
+                                            <?php foreach( $tech_record_select as $record){ ?>
                                                 <div class="card my-4 mb-1">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -154,7 +182,7 @@ require('../controllers/newscontroller.php');
                                                                 <h4 class="card-title"><?php echo $record["title"]; ?></h4>
                                                                 <p class=""><span>Author:</span><?php echo $record["author"]; ?></p>
                                                                 <p class=""><?php echo $record["date"]; ?></p> 
-                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right"><?php echo $record["articlelink"]; ?></a>
+                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right" target="_blank"><?php echo $record["articlelink"]; ?></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -166,11 +194,11 @@ require('../controllers/newscontroller.php');
                                                 <nav data-pagination class="pt-5">
                                                     <a href=# class="disabled"><i class="fa fa-chevron-left ml-5"></i>Previous</a>
                                                     <ul>
-                                                        <li class=current><a href=#>1</a>
-                                                        <li><a href=#>2</a>
-                                                        <li><a href=#>3</a>
-                                                        <li><a href=#>4</a>
-                                                        <li><a href=#>5</a>
+                                                        <?php
+                                                        for($page=1; $page<=$tech_num_of_pages; $page++){
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                        }
+                                                        ?>
                                                     </ul>
                                                     <a href=#2 class="next" >Next<i class="fa fa-chevron-right ml-1"></i></a>
                                                 </nav>
@@ -189,9 +217,24 @@ require('../controllers/newscontroller.php');
                                 </div>
 
                                 <div class="tab-pane fade" id="beauty" role="tabpanel" aria-labelledby="beauty">
-                                    <?php $records = view_beauty_news('beauty'); ?>
-                                        <?php if(count($records)): ?>
-                                            <?php foreach( $records as $record){ ?>
+                                    <?php 
+                                        $all_beauty_records = view_cat_news("beauty"); 
+                                        $results_per_page = 10;
+                                        $beauty_num_records = count($all_beauty_records);
+                                        $beauty_num_of_pages = ceil($beauty_num_records/$results_per_page);
+                                        if (!isset($_GET['page'])){
+                                            $page = 1;
+                                        } else{
+                                            $page = $_GET['page'];
+                                        }
+
+                                        $this_page_first_result = ($page-1)*$results_per_page;
+                                        
+                                        $beauty_record_select = view_limit_cat_news("beauty",$this_page_first_result, $results_per_page);
+
+                                        ?>
+                                        <?php if(count($beauty_record_select)): ?>
+                                            <?php foreach( $beauty_record_select as $record){ ?>
                                                 <div class="card my-4 mb-1">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -202,7 +245,7 @@ require('../controllers/newscontroller.php');
                                                                 <h4 class="card-title"><?php echo $record["title"]; ?></h4>
                                                                 <p class=""><span>Author:</span><?php echo $record["author"]; ?></p>
                                                                 <p class=""><?php echo $record["date"]; ?></p> 
-                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right"><?php echo $record["articlelink"]; ?></a>
+                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right" target="_blank"><?php echo $record["articlelink"]; ?></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -213,11 +256,11 @@ require('../controllers/newscontroller.php');
                                                 <nav data-pagination class="pt-5">
                                                     <a href=# class="disabled"><i class="fa fa-chevron-left ml-5"></i>Previous</a>
                                                     <ul>
-                                                        <li class=current><a href=#>1</a>
-                                                        <li><a href=#>2</a>
-                                                        <li><a href=#>3</a>
-                                                        <li><a href=#>4</a>
-                                                        <li><a href=#>5</a>
+                                                        <?php
+                                                        for($page=1; $page<=$beauty_num_of_pages; $page++){
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                        }
+                                                        ?>
                                                     </ul>
                                                     <a href=#2 class="next" >Next<i class="fa fa-chevron-right ml-1"></i></a>
                                                 </nav>
@@ -237,9 +280,24 @@ require('../controllers/newscontroller.php');
                                 </div>
 
                                 <div class="tab-pane" id="food" role="tabpanel" aria-labelledby="food">
-                                    <?php $records = view_food_news('food'); ?>
-                                        <?php if(count($records)): ?>
-                                            <?php foreach( $records as $record){ ?>
+                                    <?php 
+                                        $all_food_records = view_cat_news("food"); 
+                                        $results_per_page = 10;
+                                        $food_num_records = count($all_food_records);
+                                        $food_num_of_pages = ceil($food_num_records/$results_per_page);
+                                        if (!isset($_GET['page'])){
+                                            $page = 1;
+                                        } else{
+                                            $page = $_GET['page'];
+                                        }
+
+                                        $this_page_first_result = ($page-1)*$results_per_page;
+                                        
+                                        $food_record_select = view_limit_cat_news("food",$this_page_first_result, $results_per_page);
+
+                                    ?>
+                                        <?php if(count($food_record_select)): ?>
+                                            <?php foreach( $food_record_select as $record){ ?>
                                                 <div class="card my-4 mb-1">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -250,7 +308,7 @@ require('../controllers/newscontroller.php');
                                                                 <h4 class="card-title"><?php echo $record["title"]; ?></h4>
                                                                 <p class=""><span>Author:</span><?php echo $record["author"]; ?></p>
                                                                 <p class=""><?php echo $record["date"]; ?></p> 
-                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right"><?php echo $record["articlelink"]; ?></a>
+                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right" target="_blank"><?php echo $record["articlelink"]; ?></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -261,11 +319,11 @@ require('../controllers/newscontroller.php');
                                                 <nav data-pagination class="pt-5">
                                                     <a href=# class="disabled"><i class="fa fa-chevron-left ml-5"></i>Previous</a>
                                                     <ul>
-                                                        <li class=current><a href=#>1</a>
-                                                        <li><a href=#>2</a>
-                                                        <li><a href=#>3</a>
-                                                        <li><a href=#>4</a>
-                                                        <li><a href=#>5</a>
+                                                        <?php
+                                                        for($page=1; $page<=$food_num_of_pages; $page++){
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                        }
+                                                        ?>
                                                     </ul>
                                                     <a href=#2 class="next" >Next<i class="fa fa-chevron-right ml-1"></i></a>
                                                 </nav>
@@ -286,9 +344,24 @@ require('../controllers/newscontroller.php');
 
 
                                 <div class="tab-pane fade" id="travel" role="tabpanel" aria-labelledby="travel">
-                                    <?php $records = view_travel_news('beauty'); ?>
-                                        <?php if(count($records)): ?>
-                                            <?php foreach( $records as $record){ ?>
+                                    <?php 
+                                        $all_travel_records = view_cat_news("travel"); 
+                                        $results_per_page = 10;
+                                        $travel_num_records = count($all_travel_records);
+                                        $travel_num_of_pages = ceil($travel_num_records/$results_per_page);
+                                        if (!isset($_GET['page'])){
+                                            $page = 1;
+                                        } else{
+                                            $page = $_GET['page'];
+                                        }
+
+                                        $this_page_first_result = ($page-1)*$results_per_page;
+                                        
+                                        $travel_record_select = view_limit_cat_news("travel",$this_page_first_result, $results_per_page);
+
+                                    ?>
+                                        <?php if(count($travel_record_select)): ?>
+                                            <?php foreach( $travel_record_select as $record){ ?>
                                                 <div class="card my-4 mb-1">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -299,7 +372,7 @@ require('../controllers/newscontroller.php');
                                                                 <h4 class="card-title"><?php echo $record["title"]; ?></h4>
                                                                 <p class=""><span>Author:</span><?php echo $record["author"]; ?></p>
                                                                 <p class=""><?php echo $record["date"]; ?></p> 
-                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right"><?php echo $record["articlelink"]; ?></a>
+                                                                <a href="<?php echo $record["articlelink"]; ?>" class="card-link float-right" target="_blank"><?php echo $record["articlelink"]; ?></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -310,11 +383,11 @@ require('../controllers/newscontroller.php');
                                                 <nav data-pagination class="pt-5">
                                                     <a href=# class="disabled"><i class="fa fa-chevron-left ml-5"></i>Previous</a>
                                                     <ul>
-                                                        <li class=current><a href=#>1</a>
-                                                        <li><a href=#>2</a>
-                                                        <li><a href=#>3</a>
-                                                        <li><a href=#>4</a>
-                                                        <li><a href=#>5</a>
+                                                        <?php
+                                                        for($page=1; $page<=$travel_num_of_pages; $page++){
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                        }
+                                                        ?>
                                                     </ul>
                                                     <a href=#2 class="next" >Next<i class="fa fa-chevron-right ml-1"></i></a>
                                                 </nav>
