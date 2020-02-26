@@ -86,21 +86,11 @@ include('header.php');
                                 </div>
                             </div>
                           </div>
-                    </div>
-
-                    
-            
+                    </div> 
                 </div>
             </div>
         
         </section>
-
-<!-- 
-        <div class="card">
-            <div class="card-body">
-              This is some text within a card body.
-            </div>
-          </div> -->
 
 
     <!-- Bootstrap core JavaScript-->

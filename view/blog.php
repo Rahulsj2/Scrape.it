@@ -98,7 +98,7 @@ require('../controllers/newscontroller.php');
                                     } else{
                                         $page = $_GET['page'];
                                     }
-
+                                    
                                     $this_page_first_result = ($page-1)*$results_per_page;
                                     
                                     $record_select = view_limit_news($this_page_first_result, $results_per_page);
@@ -168,7 +168,7 @@ require('../controllers/newscontroller.php');
                                         $this_page_first_result = ($page-1)*$results_per_page;
                                         
                                         $tech_record_select = view_limit_cat_news("tech",$this_page_first_result, $results_per_page);
-
+                                        // var_dump($tech_record_select);
                                     ?>
                                         <?php if(count($tech_record_select)): ?>
                                             <?php foreach( $tech_record_select as $record){ ?>
@@ -190,19 +190,28 @@ require('../controllers/newscontroller.php');
 
 
                                             <?php } ?>
+
+
+
+
                                             <div class="mt-2">
                                                 <nav data-pagination class="pt-5">
                                                     <a href=# class="disabled"><i class="fa fa-chevron-left ml-5"></i>Previous</a>
                                                     <ul>
                                                         <?php
                                                         for($page=1; $page<=$tech_num_of_pages; $page++){
-                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '#tech'. '">'. $page . '</a>';
                                                         }
                                                         ?>
                                                     </ul>
                                                     <a href=#2 class="next" >Next<i class="fa fa-chevron-right ml-1"></i></a>
                                                 </nav>
                                             </div>
+
+
+
+
+
                                             <?php else: ?>
                                                 <div class="mt-5 pt-3">
                                                     <div class="container">
@@ -227,7 +236,7 @@ require('../controllers/newscontroller.php');
                                         } else{
                                             $page = $_GET['page'];
                                         }
-
+                                        
                                         $this_page_first_result = ($page-1)*$results_per_page;
                                         
                                         $beauty_record_select = view_limit_cat_news("beauty",$this_page_first_result, $results_per_page);
@@ -258,7 +267,7 @@ require('../controllers/newscontroller.php');
                                                     <ul>
                                                         <?php
                                                         for($page=1; $page<=$beauty_num_of_pages; $page++){
-                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '#beauty'. '">'. $page . '</a>';
                                                         }
                                                         ?>
                                                     </ul>
@@ -321,7 +330,7 @@ require('../controllers/newscontroller.php');
                                                     <ul>
                                                         <?php
                                                         for($page=1; $page<=$food_num_of_pages; $page++){
-                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                            echo '<li class=current><a href="blog.php?page='. $page . '#food'. '">'. $page . '</a>';
                                                         }
                                                         ?>
                                                     </ul>
@@ -385,7 +394,7 @@ require('../controllers/newscontroller.php');
                                                     <ul>
                                                         <?php
                                                         for($page=1; $page<=$travel_num_of_pages; $page++){
-                                                            echo '<li class=current><a href="blog.php?page='. $page . '">'. $page . '</a>';
+                                                            echo '<li class=current><a href="blog.php#?page='. $page . '#travel'. '">'. $page . '</a>';
                                                         }
                                                         ?>
                                                     </ul>
@@ -421,14 +430,6 @@ require('../controllers/newscontroller.php');
         </section>
         
 
-
-
-<!-- 
-        <div class="card">
-            <div class="card-body">
-              This is some text within a card body.
-            </div>
-          </div> -->
 
 
     <!-- Bootstrap core JavaScript-->
