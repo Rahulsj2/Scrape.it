@@ -1,32 +1,28 @@
 import scrapy
 
-class PostSpider(scrapy.Spider):
-    name = "the_verge_tech_spider"
-    # autothrottle_enabled = True
-    start_urls = ["https://www.theverge.com/tech"]
 
+class PostsBeautySpider(scrapy.Spider):
+
+    name = "beauty_spider"
+
+    start_urls = [
+        'https://www.elle.com/beauty/makeup-skin-care/'
+    ]
 
     def parse(self, response):
-    #    page = response.url.split('/')[-1]
-    #    filename = 'posts_%s' % page
-
-    #    with open(filename, 'wb') as f:
-    #        f.write(response.body) 
-
-        for post in response.css("div.c-compact-river .c-compact-river__entry"):
+        for post in response.css('div.full-item'):
             yield {
-                'title': post.css("h2.c-entry-box--compact__title a::text").get(),
-                'post_link': post.css("div a::attr(href)").get(),
-                'image_link': post.css("div.c-entry-box--compact__image img::attr(src)").extract(),
-                'date': post.css("time.c-byline__item::text").get(),
-                'author': post.css("span.c-byline__author-name::text").get()
+                'title': post.css('div.full-item-content a.full-item-title::text').get(),
+                'post_link': post.css('div.full-item-content a.full-item-title::attr(href).getall()').getall(),
+                'image_link': post.css('a.full-time-image img.lazyimage::attr(src)'),
+                'summary': post.css('div.full-item-content div.full-item-dek p::text').getall(),
+                'date': post.css('div.full-item-metadata div.publish-date::attr(data-publish-date)').getall(),
+                'author': post.css('div.full-item-content div.byline span.byline-name::text').getall() #this returns the data with \n\t
+                #Remember to trim this part of the code
             }
 
-
-
-        next_page = response.css("nav.c-pagination a.c-pagination__link::attr(href)").get()
-        if next_page.find("https") == -1:
-            next_page = "https://www.theverge.com" + next_page
+        
+        next_page = response.css('a.next-posts-link::attr(href)').get()
         if next_page is not None:
             next_page = response.urljoin(next_page)
             yield scrapy.Request(next_page, callback=self.parse)
