@@ -1,7 +1,7 @@
 import scrapy
 
 class PostSpider(scrapy.Spider):
-    name = "the_verge_tech_spider"
+    name = "beauty_spider"
     # autothrottle_enabled = True
     start_urls = ["https://www.theverge.com/tech"]
 

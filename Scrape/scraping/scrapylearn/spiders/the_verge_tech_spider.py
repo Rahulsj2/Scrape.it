@@ -13,7 +13,7 @@ class PostSpider(scrapy.Spider):
     #    with open(filename, 'wb') as f:
     #        f.write(response.body) 
 
-        for post in response.css("div.c-compact-river .c-compact-river__entry"):
+        for post in response.css("div.c-compact-river .c-compact-river__entry c-entry-box--compact"):
             yield {
                 'title': post.css("h2.c-entry-box--compact__title a::text").get(),
                 'post_link': post.css("div a::attr(href)").get(),

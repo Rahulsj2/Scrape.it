@@ -11,8 +11,9 @@ import mysql.connector
 class ScrapylearnPipeline(object):
 
     def __init__(self):
+        self.tablePreped = False
         self.create_connection()
-        self.create_table()
+        # self.create_table()
 
     def create_connection(self):
         self.mydb = mysql.connector.connect(
@@ -35,14 +36,24 @@ class ScrapylearnPipeline(object):
             gender ENUM('tech', 'beauty', 'travel', 'food', 'general') not null default 'general'
         )""")
 
+    def prepTable(self, category):
+        self.db_cursor.execute("DELETE FROM news WHERE category='" + category + "'")
+
 
     def store_db(self, item):
         sql = "INSERT INTO news (title, author, date, imagelink, articlelink, category) VALUES (%s, %s,%s, %s,%s,%s)"
-        val = (item['title'], item['author'], item['date'], item['image_link'][1], item['post_link'], item['category'])
+        if item['category'] == "tech":
+            val = (item['title'], item['author'], item['date'], item['image_link'][1], item['post_link'], item['category'])
+        else:
+            val = (item['title'], item['author'], item['date'], item['image_link'], item['post_link'], item['category'])
         self.db_cursor.execute(sql, val)
         self.mydb.commit()
     
 
     def process_item(self, item, spider):
+        if (not self.tablePreped):
+            self.prepTable(item['category'])
+            self.tablePreped = True
+
         self.store_db(item)
         return item
