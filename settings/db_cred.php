@@ -1,8 +1,8 @@
 <?php
 //Database credentials
-define("DATABASE", "ScrapeTest");
+define("DATABASE", "u791583320_scrape_it");
 define("SERVER", "localhost");
-define("USERNAME", "root");
-define("PASSWD", "");
+define("USERNAME", "u791583320_scrape_it");
+define("PASSWD", "password1234567890");
 
 ?>
